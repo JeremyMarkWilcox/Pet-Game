@@ -69,6 +69,7 @@ grow_vertical = 2
 visible = false
 layout_mode = 1
 settings_menu = NodePath("../SettingsMenu")
+pause_on_focus_loss = false
 
 [node name="SettingsMenu" parent="." unique_id=662873383 node_paths=PackedStringArray("controls_menu") instance=ExtResource("3_m71xk")]
 visible = false

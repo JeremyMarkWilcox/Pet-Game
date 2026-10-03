@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="NeedData" format=3 uid="uid://d1ptpuylddq00"]
+
+[ext_resource type="Script" uid="uid://c3kq1ndplnwlm" path="res://game/pet/needs/need_data.gd" id="1_h8dkc"]
+
+[resource]
+script = ExtResource("1_h8dkc")
+action_id = &"play"
+metadata/_custom_type_script = "uid://c3kq1ndplnwlm"
