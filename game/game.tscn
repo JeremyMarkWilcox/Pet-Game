@@ -16,6 +16,7 @@
 [ext_resource type="Script" uid="uid://yy1usu1mpmia" path="res://game/pet/needs/needs_debug_label.gd" id="8_ee6o4"]
 [ext_resource type="PackedScene" uid="uid://cniox0c88ga5l" path="res://core/ui/controls_menu.tscn" id="8_wmqhs"]
 [ext_resource type="Script" uid="uid://brts7u4aslwat" path="res://game/pet/action_button.gd" id="9_hb504"]
+[ext_resource type="PackedScene" uid="uid://n7uv2aldgp81" path="res://game/pet/pet/pet.tscn" id="10_4cobl"]
 
 [node name="Game" type="Control" unique_id=670230050 node_paths=PackedStringArray("pause_menu", "needs_system")]
 layout_mode = 3
@@ -70,6 +71,14 @@ text = "Stats"
 script = ExtResource("8_ee6o4")
 needs_system = NodePath("../Systems/NeedsSystem")
 bond_system = NodePath("../Systems/BondSystem")
+
+[node name="Pet" parent="." unique_id=827091713 node_paths=PackedStringArray("needs_system") instance=ExtResource("10_4cobl")]
+layout_mode = 1
+offset_left = 280.0
+offset_top = 150.0
+offset_right = -296.0
+offset_bottom = -146.0
+needs_system = NodePath("../Systems/NeedsSystem")
 
 [node name="ActionBar" type="HBoxContainer" parent="." unique_id=1372412126]
 layout_mode = 1
