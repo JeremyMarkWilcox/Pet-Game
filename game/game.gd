@@ -2,8 +2,7 @@ extends Control
 
 @export var music: AudioStream
 @export var pause_menu: BaseMenu
-@export var win_screen: BaseMenu
-@export var game_over_screen: BaseMenu
+@export var needs_system: NeedsSystem
 
 var _last_window_size := Vector2i.ZERO
 
@@ -34,10 +33,8 @@ func _unhandled_input(event: InputEvent) -> void:
 	
 
 func _on_debug_win() -> void:
-	if not MenuManager.is_menu_open():
-		MenuManager.open_menu(win_screen)
+	needs_system.add_to_all(1.0) # Page Up: refill everything
 
 
 func _on_debug_lose() -> void:
-	if not MenuManager.is_menu_open():
-		MenuManager.open_menu(game_over_screen)
+	needs_system.add_to_all(-0.3) # Page Down: drain 30%

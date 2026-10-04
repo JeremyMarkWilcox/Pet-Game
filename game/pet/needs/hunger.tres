@@ -4,5 +4,6 @@
 
 [resource]
 script = ExtResource("1_3tc7t")
+id = &"hunger"
 action_id = &"feed"
 metadata/_custom_type_script = "uid://c3kq1ndplnwlm"

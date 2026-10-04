@@ -3,14 +3,20 @@
 [ext_resource type="Script" uid="uid://qy4it252asph" path="res://game/game.gd" id="1_qdja7"]
 [ext_resource type="AudioStream" uid="uid://4qr4upba6mol" path="res://assets/sounds/music/duty_calls.mp3" id="2_i75et"]
 [ext_resource type="PackedScene" uid="uid://clc41ipfan7bu" path="res://core/ui/pause_menu.tscn" id="2_m71xk"]
-[ext_resource type="Theme" uid="uid://big3vhu7k1hbb" path="res://core/theme/base_theme.tres" id="3_l8g03"]
 [ext_resource type="PackedScene" uid="uid://dr52lc4bvyyj7" path="res://core/ui/settings_menu.tscn" id="3_m71xk"]
+[ext_resource type="Script" uid="uid://bab0dwbj30llf" path="res://game/pet/needs/needs_system.gd" id="3_vsp63"]
+[ext_resource type="Script" uid="uid://c3kq1ndplnwlm" path="res://game/pet/needs/need_data.gd" id="4_b686c"]
 [ext_resource type="PackedScene" uid="uid://cyyymtcnpcy60" path="res://core/ui/end_screen.tscn" id="5_adwu5"]
+[ext_resource type="Resource" uid="uid://cjpffpw62djl2" path="res://game/pet/needs/hunger.tres" id="5_hb504"]
+[ext_resource type="Resource" uid="uid://d1ptpuylddq00" path="res://game/pet/needs/boredom.tres" id="6_ee6o4"]
 [ext_resource type="AudioStream" uid="uid://b8d08d24ieooh" path="res://assets/sounds/music/kayak.mp3" id="6_knu3h"]
 [ext_resource type="AudioStream" uid="uid://c476cpsaki108" path="res://assets/sounds/music/game_over.ogg" id="7_1vmna"]
+[ext_resource type="Script" uid="uid://dbajpfva2dtv1" path="res://game/pet/pet_save.gd" id="7_hb504"]
+[ext_resource type="Script" uid="uid://yy1usu1mpmia" path="res://game/pet/needs/needs_debug_label.gd" id="8_ee6o4"]
 [ext_resource type="PackedScene" uid="uid://cniox0c88ga5l" path="res://core/ui/controls_menu.tscn" id="8_wmqhs"]
+[ext_resource type="Script" uid="uid://brts7u4aslwat" path="res://game/pet/action_button.gd" id="9_hb504"]
 
-[node name="Game" type="Control" unique_id=670230050 node_paths=PackedStringArray("pause_menu", "win_screen", "game_over_screen")]
+[node name="Game" type="Control" unique_id=670230050 node_paths=PackedStringArray("pause_menu", "needs_system")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -19,9 +25,18 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_qdja7")
 music = ExtResource("2_i75et")
-pause_menu = NodePath("PauseMenu")
-win_screen = NodePath("WinScreen")
-game_over_screen = NodePath("GameOverScreen")
+pause_menu = NodePath("Menus/PauseMenu")
+needs_system = NodePath("Systems/NeedsSystem")
+
+[node name="Systems" type="Node" parent="." unique_id=1045684030]
+
+[node name="NeedsSystem" type="Node" parent="Systems" unique_id=2082929055]
+script = ExtResource("3_vsp63")
+needs = Array[ExtResource("4_b686c")]([ExtResource("5_hb504"), ExtResource("6_ee6o4")])
+
+[node name="PetSave" type="Node" parent="Systems" unique_id=695942011 node_paths=PackedStringArray("needs_system")]
+script = ExtResource("7_hb504")
+needs_system = NodePath("../NeedsSystem")
 
 [node name="Background" type="ColorRect" parent="." unique_id=1037094621]
 layout_mode = 1
@@ -32,61 +47,69 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.023529412, 0, 1, 1)
 
-[node name="PlaceHolder" type="Label" parent="." unique_id=850699072]
+[node name="NeedsDebugLabel" type="Label" parent="." unique_id=763086249 node_paths=PackedStringArray("needs_system")]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
+offset_left = -25.0
+offset_top = -12.5
+offset_right = 25.0
+offset_bottom = 12.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Stats"
+script = ExtResource("8_ee6o4")
+needs_system = NodePath("../Systems/NeedsSystem")
+
+[node name="ActionBar" type="HBoxContainer" parent="." unique_id=1372412126]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
 offset_left = -20.0
-offset_top = -11.5
+offset_top = -40.0
 offset_right = 20.0
-offset_bottom = 11.5
 grow_horizontal = 2
-grow_vertical = 2
-theme = ExtResource("3_l8g03")
-theme_type_variation = &"TitleLabel"
-text = "    Game Scene
-    Press Esc / Start for the Pause Menu"
-horizontal_alignment = 1
+grow_vertical = 0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=2023108572]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -69.0
-offset_top = -50.5
-offset_right = 69.0
-offset_bottom = 50.5
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Feed" type="Button" parent="ActionBar" unique_id=1939082210 node_paths=PackedStringArray("needs_system")]
+layout_mode = 2
+text = "Feed"
+script = ExtResource("9_hb504")
+action_id = &"feed"
+needs_system = NodePath("../../Systems/NeedsSystem")
 
-[node name="PauseMenu" parent="." unique_id=1641965247 node_paths=PackedStringArray("settings_menu") instance=ExtResource("2_m71xk")]
+[node name="Play" type="Button" parent="ActionBar" unique_id=1525215469 node_paths=PackedStringArray("needs_system")]
+layout_mode = 2
+text = "Play"
+script = ExtResource("9_hb504")
+action_id = &"play"
+needs_system = NodePath("../../Systems/NeedsSystem")
+
+[node name="Menus" type="Node" parent="." unique_id=2028236517]
+
+[node name="PauseMenu" parent="Menus" unique_id=1641965247 node_paths=PackedStringArray("settings_menu") instance=ExtResource("2_m71xk")]
 visible = false
-layout_mode = 1
 settings_menu = NodePath("../SettingsMenu")
 pause_on_focus_loss = false
 
-[node name="SettingsMenu" parent="." unique_id=662873383 node_paths=PackedStringArray("controls_menu") instance=ExtResource("3_m71xk")]
+[node name="SettingsMenu" parent="Menus" unique_id=662873383 node_paths=PackedStringArray("controls_menu") instance=ExtResource("3_m71xk")]
 visible = false
-layout_mode = 1
 controls_menu = NodePath("../ControlsMenu")
 
-[node name="WinScreen" parent="." unique_id=1090858386 instance=ExtResource("5_adwu5")]
+[node name="WinScreen" parent="Menus" unique_id=1090858386 instance=ExtResource("5_adwu5")]
 visible = false
-layout_mode = 1
 heading_text = "You Win!"
 music = ExtResource("6_knu3h")
 
-[node name="GameOverScreen" parent="." unique_id=576888152 instance=ExtResource("5_adwu5")]
+[node name="GameOverScreen" parent="Menus" unique_id=576888152 instance=ExtResource("5_adwu5")]
 visible = false
-layout_mode = 1
 stinger = ExtResource("7_1vmna")
 
-[node name="ControlsMenu" parent="." unique_id=1503134691 instance=ExtResource("8_wmqhs")]
+[node name="ControlsMenu" parent="Menus" unique_id=1503134691 instance=ExtResource("8_wmqhs")]
 visible = false
-layout_mode = 1
