@@ -10,6 +10,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 4
 script = ExtResource("1_ig1xr")
 master_slider = NodePath("VBoxMain/ScrollContainer/ScrollerVBox/Master/MasterHSlider")
 music_slider = NodePath("VBoxMain/ScrollContainer/ScrollerVBox/Music/MusicHSlider")
@@ -44,9 +45,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -320.0
-offset_top = -262.5
+offset_top = -181.0
 offset_right = 320.0
-offset_bottom = 262.5
+offset_bottom = 344.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -58,13 +59,14 @@ text = "Settings"
 horizontal_alignment = 1
 
 [node name="ScrollContainer" type="ScrollContainer" parent="VBoxMain" unique_id=1791598968]
-custom_minimum_size = Vector2(600, 400)
+custom_minimum_size = Vector2(600, 250)
 layout_mode = 2
 follow_focus = true
 horizontal_scroll_mode = 0
 
 [node name="ScrollerVBox" type="VBoxContainer" parent="VBoxMain/ScrollContainer" unique_id=94619568]
 layout_mode = 2
+size_flags_horizontal = 3
 
 [node name="AudioHeader" type="Label" parent="VBoxMain/ScrollContainer/ScrollerVBox" unique_id=1080124852]
 layout_mode = 2
@@ -79,7 +81,7 @@ layout_mode = 2
 [node name="MasterLabel" type="Label" parent="VBoxMain/ScrollContainer/ScrollerVBox/Master" unique_id=982648564]
 layout_mode = 2
 theme = ExtResource("3_2255v")
-text = "Master            "
+text = "          Master            "
 
 [node name="MasterHSlider" type="HSlider" parent="VBoxMain/ScrollContainer/ScrollerVBox/Master" unique_id=1890600828]
 custom_minimum_size = Vector2(400, 0)
@@ -95,7 +97,7 @@ layout_mode = 2
 [node name="MusicLabel" type="Label" parent="VBoxMain/ScrollContainer/ScrollerVBox/Music" unique_id=380194808]
 layout_mode = 2
 theme = ExtResource("3_2255v")
-text = "Music             "
+text = "          Music             "
 
 [node name="MusicHSlider" type="HSlider" parent="VBoxMain/ScrollContainer/ScrollerVBox/Music" unique_id=709042131]
 custom_minimum_size = Vector2(400, 0)
@@ -111,7 +113,7 @@ layout_mode = 2
 [node name="SFXLabel" type="Label" parent="VBoxMain/ScrollContainer/ScrollerVBox/SFX" unique_id=2011004812]
 layout_mode = 2
 theme = ExtResource("3_2255v")
-text = "Sound Effects      "
+text = "          Sound Effects      "
 
 [node name="SFXHSlider" type="HSlider" parent="VBoxMain/ScrollContainer/ScrollerVBox/SFX" unique_id=68022615]
 custom_minimum_size = Vector2(400, 0)
@@ -127,7 +129,7 @@ layout_mode = 2
 [node name="UISoundsLabel" type="Label" parent="VBoxMain/ScrollContainer/ScrollerVBox/UISounds" unique_id=1590328559]
 layout_mode = 2
 theme = ExtResource("3_2255v")
-text = "UI Sounds         "
+text = "          UI Sounds         "
 
 [node name="UIHSlider" type="HSlider" parent="VBoxMain/ScrollContainer/ScrollerVBox/UISounds" unique_id=1583891508]
 custom_minimum_size = Vector2(400, 0)
@@ -146,6 +148,8 @@ horizontal_alignment = 1
 
 [node name="FullScreenBox" type="HBoxContainer" parent="VBoxMain/ScrollContainer/ScrollerVBox" unique_id=112144350]
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 
 [node name="FullScreenText" type="Label" parent="VBoxMain/ScrollContainer/ScrollerVBox/FullScreenBox" unique_id=1695258642]
 layout_mode = 2
@@ -154,6 +158,8 @@ text = "Fullscreen        "
 
 [node name="FullScreen" type="CheckButton" parent="VBoxMain/ScrollContainer/ScrollerVBox/FullScreenBox" unique_id=1193615506]
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 
 [node name="AccessibilityHeader" type="Label" parent="VBoxMain/ScrollContainer/ScrollerVBox" unique_id=2076082527]
 layout_mode = 2
@@ -163,6 +169,7 @@ text = "Accessibility"
 horizontal_alignment = 1
 
 [node name="ShakeScreenBox" type="HBoxContainer" parent="VBoxMain/ScrollContainer/ScrollerVBox" unique_id=1186380392]
+visible = false
 layout_mode = 2
 
 [node name="ShakeScreenText" type="Label" parent="VBoxMain/ScrollContainer/ScrollerVBox/ShakeScreenBox" unique_id=590019155]
@@ -174,6 +181,7 @@ text = "Shake Screen      "
 layout_mode = 2
 
 [node name="FlashingEffectsBox" type="HBoxContainer" parent="VBoxMain/ScrollContainer/ScrollerVBox" unique_id=1459189495]
+visible = false
 layout_mode = 2
 
 [node name="FlashingEffectsText" type="Label" parent="VBoxMain/ScrollContainer/ScrollerVBox/FlashingEffectsBox" unique_id=1539317022]
@@ -185,6 +193,7 @@ text = "Flashing Effects   "
 layout_mode = 2
 
 [node name="UIScale" type="HBoxContainer" parent="VBoxMain/ScrollContainer/ScrollerVBox" unique_id=394992399]
+visible = false
 layout_mode = 2
 
 [node name="UiScaleLabel" type="Label" parent="VBoxMain/ScrollContainer/ScrollerVBox/UIScale" unique_id=1000863339]
@@ -220,8 +229,11 @@ horizontal_alignment = 1
 
 [node name="ControlsButton" type="Button" parent="VBoxMain/ScrollContainer/ScrollerVBox" unique_id=190658101]
 layout_mode = 2
+size_flags_horizontal = 4
 text = "Controls"
 
 [node name="BackButton" type="Button" parent="VBoxMain" unique_id=1386689142]
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 text = "Back"

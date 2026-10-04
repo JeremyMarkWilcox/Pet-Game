@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bub40ec1qfl2u"]
 
 [ext_resource type="Script" uid="uid://dotsrnnn415j1" path="res://core/ui/title.gd" id="1_s5xim"]
-[ext_resource type="AudioStream" uid="uid://bjtpqornf3g4s" path="res://assets/sounds/music/deified.mp3" id="2_4snhl"]
+[ext_resource type="AudioStream" uid="uid://5mleoov5usmt" path="res://assets/sounds/music/deified.wav" id="2_f8y5p"]
 [ext_resource type="PackedScene" uid="uid://dr52lc4bvyyj7" path="res://core/ui/settings_menu.tscn" id="2_fepre"]
 [ext_resource type="PackedScene" uid="uid://ddt1m8s6wg7ju" path="res://core/ui/credits.tscn" id="4_q06yk"]
 [ext_resource type="PackedScene" uid="uid://cniox0c88ga5l" path="res://core/ui/controls_menu.tscn" id="5_f8y5p"]
@@ -15,7 +15,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_s5xim")
 game_scene = "uid://dpeqdxb317lrk"
-music = ExtResource("2_4snhl")
+music = ExtResource("2_f8y5p")
 play_button = NodePath("VBoxContainer/PlayButton")
 settings_button = NodePath("VBoxContainer/Settings")
 credits_button = NodePath("VBoxContainer/CreditsButton")
