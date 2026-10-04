@@ -1,17 +1,13 @@
 [gd_scene format=3 uid="uid://n7uv2aldgp81"]
 
 [ext_resource type="Script" uid="uid://c2t5l6qc2i6ht" path="res://game/pet/pet.gd" id="1_c730y"]
-[ext_resource type="Texture2D" uid="uid://dcp3bx36qcs6q" path="res://icon.svg" id="2_mnxcp"]
+[ext_resource type="Texture2D" uid="uid://bt6x4d2fvvogm" path="res://assets/art/dragon.png" id="2_mnxcp"]
 
 [node name="Pet" type="Control" unique_id=827091713 node_paths=PackedStringArray("body", "need_bubble", "need_icon", "need_label")]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = -576.0
-offset_bottom = -296.0
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 0
+offset_right = 175.0
+offset_bottom = 200.0
 script = ExtResource("1_c730y")
 body = NodePath("Body")
 need_bubble = NodePath("NeedBubble")
@@ -28,14 +24,14 @@ grow_vertical = 2
 mouse_filter = 2
 texture = ExtResource("2_mnxcp")
 expand_mode = 1
-stretch_mode = 5
+stretch_mode = 3
 
 [node name="NeedBubble" type="PanelContainer" parent="." unique_id=1303400524]
 layout_mode = 0
-offset_left = 10.0
-offset_top = -45.0
-offset_right = 50.0
-offset_bottom = -5.0
+offset_left = -38.0
+offset_top = -29.0
+offset_right = 2.0
+offset_bottom = 11.0
 mouse_filter = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="NeedBubble" unique_id=256542882]

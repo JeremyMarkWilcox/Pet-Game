@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://cniox0c88ga5l" path="res://core/ui/controls_menu.tscn" id="8_wmqhs"]
 [ext_resource type="Script" uid="uid://brts7u4aslwat" path="res://game/pet/action_button.gd" id="9_hb504"]
 [ext_resource type="PackedScene" uid="uid://n7uv2aldgp81" path="res://game/pet/pet/pet.tscn" id="10_4cobl"]
+[ext_resource type="Script" uid="uid://cqbjq0ynsoqwx" path="res://game/pet/interaction_panel.gd" id="11_ln7ps"]
 
 [node name="Game" type="Control" unique_id=670230050 node_paths=PackedStringArray("pause_menu", "needs_system")]
 layout_mode = 3
@@ -61,10 +62,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -25.0
-offset_top = -12.5
-offset_right = 25.0
-offset_bottom = 12.5
+offset_left = 99.0
+offset_top = -89.0
+offset_right = 149.0
+offset_bottom = -64.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Stats"
@@ -74,33 +75,35 @@ bond_system = NodePath("../Systems/BondSystem")
 
 [node name="Pet" parent="." unique_id=827091713 node_paths=PackedStringArray("needs_system") instance=ExtResource("10_4cobl")]
 layout_mode = 1
-offset_left = 280.0
-offset_top = 150.0
-offset_right = -296.0
-offset_bottom = -146.0
+offset_left = 250.0
+offset_top = 120.0
+offset_right = 425.0
+offset_bottom = 320.0
 needs_system = NodePath("../Systems/NeedsSystem")
 
-[node name="ActionBar" type="HBoxContainer" parent="." unique_id=1372412126]
+[node name="InteractionPanel" type="HBoxContainer" parent="." unique_id=1372412126 node_paths=PackedStringArray("pet")]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -20.0
-offset_top = -40.0
-offset_right = 20.0
+offset_left = -74.0
+offset_top = -42.0
+offset_right = 74.0
 grow_horizontal = 2
 grow_vertical = 0
+script = ExtResource("11_ln7ps")
+pet = NodePath("../Pet")
 
-[node name="Feed" type="Button" parent="ActionBar" unique_id=1939082210 node_paths=PackedStringArray("needs_system")]
+[node name="Feed" type="Button" parent="InteractionPanel" unique_id=1939082210 node_paths=PackedStringArray("needs_system")]
 layout_mode = 2
 text = "Feed"
 script = ExtResource("9_hb504")
 action_id = &"feed"
 needs_system = NodePath("../../Systems/NeedsSystem")
 
-[node name="Play" type="Button" parent="ActionBar" unique_id=1525215469 node_paths=PackedStringArray("needs_system")]
+[node name="Play" type="Button" parent="InteractionPanel" unique_id=1525215469 node_paths=PackedStringArray("needs_system")]
 layout_mode = 2
 text = "Play"
 script = ExtResource("9_hb504")

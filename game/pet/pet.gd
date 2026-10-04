@@ -1,6 +1,7 @@
 class_name Pet
 extends Control
 ## The pet on screen: shows which need it's asking for and reacts to actions.
+signal clicked
 
 @export var needs_system: NeedsSystem
 @export var body: Control ## The art; this is what hops and shakes
@@ -17,6 +18,13 @@ func _ready() -> void:
 	needs_system.need_changed.connect(_on_need_changed)
 	needs_system.action_handled.connect(_on_action_handled)
 	_update_bubble()
+	
+	
+func _gui_input(event: InputEvent) -> void:
+	var click := event as InputEventMouseButton
+	if click and click.pressed and click.button_index == MOUSE_BUTTON_LEFT:
+		clicked.emit()
+		accept_event()
 
 
 func _on_need_changed(_id: StringName, _value: float) -> void:
