@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://puj2olrxsxjj"
-path="res://.godot/imported/Pet_eat.png-735d4a4d67656ce0ababc100d9e50879.ctex"
+uid="uid://ciitumt0qao6o"
+path="res://.godot/imported/Pet_walk.png-56ef4675eeecfe001b7f0f425811535a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/art/pet/Pet_eat.png"
-dest_files=["res://.godot/imported/Pet_eat.png-735d4a4d67656ce0ababc100d9e50879.ctex"]
+source_file="res://assets/art/pet/animations/Pet_walk.png"
+dest_files=["res://.godot/imported/Pet_walk.png-56ef4675eeecfe001b7f0f425811535a.ctex"]
 
 [params]
 

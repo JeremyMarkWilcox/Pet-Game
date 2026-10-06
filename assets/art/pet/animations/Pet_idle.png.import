@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dxmtpf6od208b"
-path="res://.godot/imported/Pet_play.png-29ba022583564965f7ddc697c306306f.ctex"
+uid="uid://b5gd0pw03iehy"
+path="res://.godot/imported/Pet_idle.png-9d622c6b7b7f28833d6ffdc3d5bf07e6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/art/pet/Pet_play.png"
-dest_files=["res://.godot/imported/Pet_play.png-29ba022583564965f7ddc697c306306f.ctex"]
+source_file="res://assets/art/pet/animations/Pet_idle.png"
+dest_files=["res://.godot/imported/Pet_idle.png-9d622c6b7b7f28833d6ffdc3d5bf07e6.ctex"]
 
 [params]
 
