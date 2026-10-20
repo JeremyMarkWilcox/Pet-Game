@@ -1,9 +1,11 @@
 [gd_resource type="Resource" script_class="NeedData" format=3 uid="uid://cjpffpw62djl2"]
 
 [ext_resource type="Script" uid="uid://c3kq1ndplnwlm" path="res://game/pet/needs/need_data.gd" id="1_3tc7t"]
+[ext_resource type="Texture2D" uid="uid://bcl25thoihc1f" path="res://assets/art/pet/icons/icon_hungry.png" id="1_254p1"]
 
 [resource]
 script = ExtResource("1_3tc7t")
 id = &"hunger"
 action_id = &"feed"
+icon = ExtResource("1_254p1")
 metadata/_custom_type_script = "uid://c3kq1ndplnwlm"

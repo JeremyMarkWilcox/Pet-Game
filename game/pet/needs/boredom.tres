@@ -1,9 +1,11 @@
 [gd_resource type="Resource" script_class="NeedData" format=3 uid="uid://d1ptpuylddq00"]
 
 [ext_resource type="Script" uid="uid://c3kq1ndplnwlm" path="res://game/pet/needs/need_data.gd" id="1_h8dkc"]
+[ext_resource type="Texture2D" uid="uid://cbarx78f4huh7" path="res://assets/art/pet/icons/icon_bored.png" id="1_iwprg"]
 
 [resource]
 script = ExtResource("1_h8dkc")
 id = &"boredom"
 action_id = &"play"
+icon = ExtResource("1_iwprg")
 metadata/_custom_type_script = "uid://c3kq1ndplnwlm"

@@ -27,20 +27,22 @@ expand_mode = 1
 stretch_mode = 3
 
 [node name="NeedBubble" type="PanelContainer" parent="." unique_id=1303400524]
+custom_minimum_size = Vector2(32, 32)
 layout_mode = 0
 offset_left = -38.0
 offset_top = -29.0
-offset_right = 2.0
-offset_bottom = 11.0
+offset_right = -1.0
+offset_bottom = 3.0
 mouse_filter = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="NeedBubble" unique_id=256542882]
 layout_mode = 2
 
 [node name="NeedIcon" type="TextureRect" parent="NeedBubble/HBoxContainer" unique_id=1853013214]
-custom_minimum_size = Vector2(16, 16)
+custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 expand_mode = 1
+stretch_mode = 5
 
 [node name="NeedLabel" type="Label" parent="NeedBubble/HBoxContainer" unique_id=1143470890]
 layout_mode = 2
