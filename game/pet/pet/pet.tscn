@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://n7uv2aldgp81"]
 
 [ext_resource type="Script" uid="uid://c2t5l6qc2i6ht" path="res://game/pet/pet.gd" id="1_c730y"]
+[ext_resource type="AudioStream" uid="uid://cuqk3cqbiclpb" path="res://assets/sounds/sfx/growl.ogg" id="2_1o875"]
 [ext_resource type="Texture2D" uid="uid://dv7006qwls8h" path="res://assets/art/pet/animations/Pet_decline.png" id="2_7lad4"]
 [ext_resource type="Texture2D" uid="uid://puj2olrxsxjj" path="res://assets/art/pet/animations/Pet_eat.png" id="3_1o875"]
 [ext_resource type="Texture2D" uid="uid://b5gd0pw03iehy" path="res://assets/art/pet/animations/Pet_idle.png" id="4_prn3g"]
@@ -192,6 +193,7 @@ sprite = NodePath("Sprite")
 need_bubble = NodePath("NeedBubble")
 need_icon = NodePath("NeedBubble/HBoxContainer/NeedIcon")
 need_label = NodePath("NeedBubble/HBoxContainer/NeedLabel")
+growl_sound = ExtResource("2_1o875")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=1800547036]
 sprite_frames = SubResource("SpriteFrames_g4gaj")

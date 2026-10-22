@@ -16,6 +16,13 @@ signal clicked
 	&"pet": &"pet",
 }
 
+@export_group("Annoyance")
+## Pokes and refused actions within the window before the pet growls.
+@export var growl_threshold := 5
+@export_range(1.0, 10.0, 0.5, "suffix:s") var annoyance_window := 4.0
+@export var growl_sound: AudioStream ## Optional
+
+var _annoyances: Array[float] = []
 
 func _ready() -> void:
 	sprite.animation_finished.connect(_on_animation_finished)
@@ -30,6 +37,17 @@ func _gui_input(event: InputEvent) -> void:
 	if click and click.pressed and click.button_index == MOUSE_BUTTON_LEFT:
 		clicked.emit()
 		accept_event()
+		if _add_annoyance():
+			_growl()
+
+
+func _on_action_handled(action_id: StringName, accepted: bool) -> void:
+	if accepted:
+		sprite.play(action_animations.get(action_id, &"idle"))
+	elif _add_annoyance():
+		_growl()
+	else:
+		sprite.play(&"decline")
 
 
 func _on_need_changed(_id: StringName, _value: float) -> void:
@@ -55,12 +73,24 @@ func _get_most_urgent_need() -> NeedData:
 	return urgent
 
 
-func _on_action_handled(action_id: StringName, accepted: bool) -> void:
-	if accepted:
-		sprite.play(action_animations.get(action_id, &"idle"))
-	else:
-		sprite.play(&"decline")
-
-
 func _on_animation_finished() -> void:
 	sprite.play(&"idle") # only one-shot animations (loop off) end
+
+
+## Records a poke or a refused action. Returns true when it adds up to a growl.
+func _add_annoyance() -> bool:
+	var now := Time.get_ticks_msec() / 1000.0
+	_annoyances.append(now)
+	while now - _annoyances[0] > annoyance_window:
+		_annoyances.pop_front()
+	if _annoyances.size() < growl_threshold:
+		return false
+	_annoyances.clear()
+	return true
+
+
+func _growl() -> void:
+	var anim := &"growl" if sprite.sprite_frames.has_animation(&"growl") else &"decline"
+	sprite.play(anim)
+	Shake.node_2d(sprite, 3.0) # skipped automatically if Screen Shake is off in Settings
+	Audio.play_sfx(growl_sound, 0.1) # empty slot = silent
