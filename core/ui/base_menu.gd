@@ -19,8 +19,12 @@ func _ready() -> void:
 
 
 func open() -> void:
-	show()
+	UIAnim.pop_in(self)
 	restore_focus()
+
+
+func close() -> void:
+	UIAnim.pop_out(self)
 	
 func restore_focus() -> void:
 	# Return to the last focused control (e.g. back from Settings lands on the
@@ -31,15 +35,12 @@ func restore_focus() -> void:
 		first_focus.grab_focus()
 
 
-func close() -> void:
-	hide()
-
-
 func _link_focus_chain() -> void:
-	# Ignore empty slots (e.g. a node was deleted but its chain entry wasn't).
+	# Ignore empty slots (e.g. a node was deleted but its chain entry wasn't)
+	# and controls hidden before super() runs (e.g. a button not used here).
 	var chain: Array[Control] = []
 	for control in focus_chain:
-		if control:
+		if control and control.visible:
 			chain.append(control)
 	var count := chain.size()
 	var cols := maxi(focus_columns, 1)
