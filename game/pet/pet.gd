@@ -1,25 +1,30 @@
 class_name Pet
 extends Control
-## The pet on screen: shows which need it's asking for and reacts to actions.
+## The pet on screen: plays its animations, shows which need it's asking for and reacts to actions.
+
 signal clicked
 
 @export var needs_system: NeedsSystem
-@export var body: Control ## The art; this is what hops and shakes
+@export var sprite: AnimatedSprite2D
 @export var need_bubble: Control
 @export var need_icon: TextureRect
 @export var need_label: Label ## Placeholder until need icons exist
-
-var _body_rest := Vector2.ZERO
-var _reaction_tween: Tween
+## Animation played when an action is accepted. Refused actions play "decline".
+@export var action_animations: Dictionary[StringName, StringName] = {
+	&"feed": &"eat",
+	&"play": &"play",
+	&"pet": &"pet",
+}
 
 
 func _ready() -> void:
-	_body_rest = body.position
+	sprite.animation_finished.connect(_on_animation_finished)
 	needs_system.need_changed.connect(_on_need_changed)
 	needs_system.action_handled.connect(_on_action_handled)
+	sprite.play(&"idle")
 	_update_bubble()
-	
-	
+
+
 func _gui_input(event: InputEvent) -> void:
 	var click := event as InputEventMouseButton
 	if click and click.pressed and click.button_index == MOUSE_BUTTON_LEFT:
@@ -50,30 +55,12 @@ func _get_most_urgent_need() -> NeedData:
 	return urgent
 
 
-func _on_action_handled(_action_id: StringName, accepted: bool) -> void:
+func _on_action_handled(action_id: StringName, accepted: bool) -> void:
 	if accepted:
-		_play_happy()
+		sprite.play(action_animations.get(action_id, &"idle"))
 	else:
-		_play_refuse()
+		sprite.play(&"decline")
 
 
-func _play_happy() -> void:
-	var tween := _start_reaction()
-	tween.tween_property(body, "position:y", _body_rest.y - 8.0, 0.12) \
-			.set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
-	tween.tween_property(body, "position:y", _body_rest.y, 0.25) \
-			.set_trans(Tween.TRANS_BOUNCE).set_ease(Tween.EASE_OUT)
-
-
-func _play_refuse() -> void:
-	var tween := _start_reaction()
-	for offset: float in [-3.0, 3.0, -2.0, 0.0]:
-		tween.tween_property(body, "position:x", _body_rest.x + offset, 0.05)
-
-
-func _start_reaction() -> Tween:
-	if _reaction_tween:
-		_reaction_tween.kill()
-	body.position = _body_rest
-	_reaction_tween = create_tween()
-	return _reaction_tween
+func _on_animation_finished() -> void:
+	sprite.play(&"idle") # only one-shot animations (loop off) end

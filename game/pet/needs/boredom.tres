@@ -6,4 +6,5 @@
 script = ExtResource("1_h8dkc")
 id = &"boredom"
 action_id = &"play"
+hours_full_to_empty = 3.0
 metadata/_custom_type_script = "uid://c3kq1ndplnwlm"

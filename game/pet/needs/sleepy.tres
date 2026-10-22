@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="NeedData" format=3 uid="uid://bk3m7dlnam7t1"]
+
+[ext_resource type="Script" uid="uid://c3kq1ndplnwlm" path="res://game/pet/needs/need_data.gd" id="1_v4epj"]
+
+[resource]
+script = ExtResource("1_v4epj")
+id = &"sleepy"
+action_id = &"pet"
+hours_full_to_empty = 6.0
+metadata/_custom_type_script = "uid://c3kq1ndplnwlm"

@@ -1,37 +1,210 @@
 [gd_scene format=3 uid="uid://n7uv2aldgp81"]
 
 [ext_resource type="Script" uid="uid://c2t5l6qc2i6ht" path="res://game/pet/pet.gd" id="1_c730y"]
-[ext_resource type="Texture2D" uid="uid://bt6x4d2fvvogm" path="res://assets/art/dragon.png" id="2_mnxcp"]
+[ext_resource type="Texture2D" uid="uid://dv7006qwls8h" path="res://assets/art/pet/animations/Pet_decline.png" id="2_7lad4"]
+[ext_resource type="Texture2D" uid="uid://puj2olrxsxjj" path="res://assets/art/pet/animations/Pet_eat.png" id="3_1o875"]
+[ext_resource type="Texture2D" uid="uid://b5gd0pw03iehy" path="res://assets/art/pet/animations/Pet_idle.png" id="4_prn3g"]
+[ext_resource type="Texture2D" uid="uid://dycg3sm000a86" path="res://assets/art/pet/animations/Pet_pet.png" id="5_k4pp3"]
+[ext_resource type="Texture2D" uid="uid://dxmtpf6od208b" path="res://assets/art/pet/animations/Pet_play.png" id="6_56rvo"]
+[ext_resource type="Texture2D" uid="uid://ciitumt0qao6o" path="res://assets/art/pet/animations/Pet_walk.png" id="7_4lwud"]
 
-[node name="Pet" type="Control" unique_id=827091713 node_paths=PackedStringArray("body", "need_bubble", "need_icon", "need_label")]
+[sub_resource type="AtlasTexture" id="AtlasTexture_fwik1"]
+atlas = ExtResource("2_7lad4")
+region = Rect2(0, 0, 288, 162)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kktxl"]
+atlas = ExtResource("2_7lad4")
+region = Rect2(288, 0, 288, 162)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6awjb"]
+atlas = ExtResource("3_1o875")
+region = Rect2(0, 0, 288, 162)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hfq61"]
+atlas = ExtResource("3_1o875")
+region = Rect2(288, 0, 288, 162)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3mhe3"]
+atlas = ExtResource("3_1o875")
+region = Rect2(576, 0, 288, 162)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kx4a3"]
+atlas = ExtResource("3_1o875")
+region = Rect2(864, 0, 288, 162)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jdl5x"]
+atlas = ExtResource("4_prn3g")
+region = Rect2(0, 0, 288, 162)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jqb78"]
+atlas = ExtResource("4_prn3g")
+region = Rect2(288, 0, 288, 162)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p8knr"]
+atlas = ExtResource("5_k4pp3")
+region = Rect2(0, 0, 288, 162)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ucag"]
+atlas = ExtResource("5_k4pp3")
+region = Rect2(288, 0, 288, 162)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nceuw"]
+atlas = ExtResource("5_k4pp3")
+region = Rect2(576, 0, 288, 162)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ktvt2"]
+atlas = ExtResource("6_56rvo")
+region = Rect2(0, 0, 288, 162)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r4kld"]
+atlas = ExtResource("6_56rvo")
+region = Rect2(288, 0, 288, 162)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4rhqy"]
+atlas = ExtResource("6_56rvo")
+region = Rect2(576, 0, 288, 162)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_skdii"]
+atlas = ExtResource("6_56rvo")
+region = Rect2(864, 0, 288, 162)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r8lbw"]
+atlas = ExtResource("6_56rvo")
+region = Rect2(1152, 0, 288, 162)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w06u8"]
+atlas = ExtResource("7_4lwud")
+region = Rect2(0, 0, 288, 162)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_khv3h"]
+atlas = ExtResource("7_4lwud")
+region = Rect2(288, 0, 288, 162)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ws6l"]
+atlas = ExtResource("7_4lwud")
+region = Rect2(576, 0, 288, 162)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1xer3"]
+atlas = ExtResource("7_4lwud")
+region = Rect2(864, 0, 288, 162)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g4gaj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fwik1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kktxl")
+}],
+"loop": 0,
+"name": &"decline",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6awjb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hfq61")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3mhe3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kx4a3")
+}],
+"loop": 0,
+"name": &"eat",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jdl5x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jqb78")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p8knr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3ucag")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nceuw")
+}],
+"loop": 0,
+"name": &"pet",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ktvt2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r4kld")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4rhqy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_skdii")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r8lbw")
+}],
+"loop": 0,
+"name": &"play",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w06u8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_khv3h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6ws6l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1xer3")
+}],
+"loop": 1,
+"name": &"walk",
+"speed": 3.0
+}]
+
+[node name="Pet" type="Control" unique_id=827091713 node_paths=PackedStringArray("sprite", "need_bubble", "need_icon", "need_label")]
+custom_minimum_size = Vector2(288, 162)
 layout_mode = 3
 anchors_preset = 0
 offset_right = 175.0
 offset_bottom = 200.0
 script = ExtResource("1_c730y")
-body = NodePath("Body")
+sprite = NodePath("Sprite")
 need_bubble = NodePath("NeedBubble")
 need_icon = NodePath("NeedBubble/HBoxContainer/NeedIcon")
 need_label = NodePath("NeedBubble/HBoxContainer/NeedLabel")
 
-[node name="Body" type="TextureRect" parent="." unique_id=7888621]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-texture = ExtResource("2_mnxcp")
-expand_mode = 1
-stretch_mode = 3
+[node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=1800547036]
+sprite_frames = SubResource("SpriteFrames_g4gaj")
+animation = &"walk"
+frame_progress = 0.7620141
+centered = false
 
 [node name="NeedBubble" type="PanelContainer" parent="." unique_id=1303400524]
 layout_mode = 0
-offset_left = -38.0
-offset_top = -29.0
-offset_right = 2.0
-offset_bottom = 11.0
+offset_left = 100.0
+offset_top = -10.0
+offset_right = 140.0
+offset_bottom = 30.0
 mouse_filter = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="NeedBubble" unique_id=256542882]

@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://dpeqdxb317lrk"]
 
 [ext_resource type="Script" uid="uid://qy4it252asph" path="res://game/game.gd" id="1_qdja7"]
-[ext_resource type="AudioStream" uid="uid://4qr4upba6mol" path="res://assets/sounds/music/duty_calls.mp3" id="2_i75et"]
 [ext_resource type="PackedScene" uid="uid://clc41ipfan7bu" path="res://core/ui/pause_menu.tscn" id="2_m71xk"]
 [ext_resource type="PackedScene" uid="uid://dr52lc4bvyyj7" path="res://core/ui/settings_menu.tscn" id="3_m71xk"]
 [ext_resource type="Script" uid="uid://bab0dwbj30llf" path="res://game/pet/needs/needs_system.gd" id="3_vsp63"]
@@ -10,6 +9,7 @@
 [ext_resource type="Resource" uid="uid://cjpffpw62djl2" path="res://game/pet/needs/hunger.tres" id="5_hb504"]
 [ext_resource type="Resource" uid="uid://d1ptpuylddq00" path="res://game/pet/needs/boredom.tres" id="6_ee6o4"]
 [ext_resource type="AudioStream" uid="uid://b8d08d24ieooh" path="res://assets/sounds/music/kayak.mp3" id="6_knu3h"]
+[ext_resource type="Resource" uid="uid://bk3m7dlnam7t1" path="res://game/pet/needs/sleepy.tres" id="6_ln7ps"]
 [ext_resource type="AudioStream" uid="uid://c476cpsaki108" path="res://assets/sounds/music/game_over.ogg" id="7_1vmna"]
 [ext_resource type="Script" uid="uid://dbajpfva2dtv1" path="res://game/pet/pet_save.gd" id="7_hb504"]
 [ext_resource type="Script" uid="uid://5gbra0iogkv0" path="res://game/pet/bond/bond_system.gd" id="8_4cobl"]
@@ -27,7 +27,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_qdja7")
-music = ExtResource("2_i75et")
 pause_menu = NodePath("Menus/PauseMenu")
 needs_system = NodePath("Systems/NeedsSystem")
 
@@ -35,7 +34,7 @@ needs_system = NodePath("Systems/NeedsSystem")
 
 [node name="NeedsSystem" type="Node" parent="Systems" unique_id=2082929055]
 script = ExtResource("3_vsp63")
-needs = Array[ExtResource("4_b686c")]([ExtResource("5_hb504"), ExtResource("6_ee6o4")])
+needs = Array[ExtResource("4_b686c")]([ExtResource("5_hb504"), ExtResource("6_ee6o4"), ExtResource("6_ln7ps")])
 
 [node name="PetSave" type="Node" parent="Systems" unique_id=695942011 node_paths=PackedStringArray("needs_system", "bond_system")]
 script = ExtResource("7_hb504")
@@ -45,6 +44,7 @@ bond_system = NodePath("../BondSystem")
 [node name="BondSystem" type="Node" parent="Systems" unique_id=1714183224 node_paths=PackedStringArray("needs_system")]
 script = ExtResource("8_4cobl")
 needs_system = NodePath("../NeedsSystem")
+gain_per_action = 0.07
 
 [node name="Background" type="ColorRect" parent="." unique_id=1037094621]
 layout_mode = 1
@@ -108,6 +108,13 @@ layout_mode = 2
 text = "Play"
 script = ExtResource("9_hb504")
 action_id = &"play"
+needs_system = NodePath("../../Systems/NeedsSystem")
+
+[node name="Pet" type="Button" parent="InteractionPanel" unique_id=852665721 node_paths=PackedStringArray("needs_system")]
+layout_mode = 2
+text = "Pet"
+script = ExtResource("9_hb504")
+action_id = &"pet"
 needs_system = NodePath("../../Systems/NeedsSystem")
 
 [node name="Menus" type="Node" parent="." unique_id=2028236517]
