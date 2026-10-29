@@ -18,6 +18,8 @@
 [ext_resource type="Script" uid="uid://brts7u4aslwat" path="res://game/pet/action_button.gd" id="9_hb504"]
 [ext_resource type="PackedScene" uid="uid://n7uv2aldgp81" path="res://game/pet/pet/pet.tscn" id="10_4cobl"]
 [ext_resource type="Script" uid="uid://cqbjq0ynsoqwx" path="res://game/pet/interaction_panel.gd" id="11_ln7ps"]
+[ext_resource type="Script" uid="uid://doiubreqv8ijg" path="res://game/pet/pet/status_panel.gd" id="11_pxxsx"]
+[ext_resource type="Script" uid="uid://dm0vb5k5y47yx" path="res://game/pet/pet/save_button.gd" id="14_u8s88"]
 
 [node name="Game" type="Control" unique_id=670230050 node_paths=PackedStringArray("pause_menu", "needs_system")]
 layout_mode = 3
@@ -57,17 +59,12 @@ color = Color(0.023529412, 0, 1, 1)
 
 [node name="NeedsDebugLabel" type="Label" parent="." unique_id=763086249 node_paths=PackedStringArray("needs_system", "bond_system")]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 99.0
-offset_top = -89.0
-offset_right = 149.0
-offset_bottom = -64.0
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -25.0
+offset_right = 50.0
+grow_vertical = 0
 text = "Stats"
 script = ExtResource("8_ee6o4")
 needs_system = NodePath("../Systems/NeedsSystem")
@@ -80,6 +77,30 @@ offset_top = 120.0
 offset_right = 425.0
 offset_bottom = 320.0
 needs_system = NodePath("../Systems/NeedsSystem")
+
+[node name="StatusPanel" type="VBoxContainer" parent="." unique_id=1050979910 node_paths=PackedStringArray("needs_system", "bond_system", "bond_bar")]
+layout_mode = 1
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 48.0
+offset_bottom = 48.0
+script = ExtResource("11_pxxsx")
+needs_system = NodePath("../Systems/NeedsSystem")
+bond_system = NodePath("../Systems/BondSystem")
+bond_bar = NodePath("BondRow/BondBar")
+
+[node name="BondRow" type="HBoxContainer" parent="StatusPanel" unique_id=669594676]
+layout_mode = 2
+
+[node name="BondLabel" type="Label" parent="StatusPanel/BondRow" unique_id=1442513266]
+layout_mode = 2
+text = "Bond"
+
+[node name="BondBar" type="ProgressBar" parent="StatusPanel/BondRow" unique_id=860023589]
+custom_minimum_size = Vector2(80, 10)
+layout_mode = 2
+max_value = 1.0
+step = 0.0
 
 [node name="InteractionPanel" type="HBoxContainer" parent="." unique_id=1372412126 node_paths=PackedStringArray("pet")]
 layout_mode = 1
@@ -116,6 +137,20 @@ text = "Pet"
 script = ExtResource("9_hb504")
 action_id = &"pet"
 needs_system = NodePath("../../Systems/NeedsSystem")
+
+[node name="SaveButton" type="Button" parent="." unique_id=313766050 node_paths=PackedStringArray("pet_save")]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -50.0
+offset_top = 24.0
+offset_right = -26.0
+offset_bottom = 36.0
+grow_horizontal = 0
+text = "Save"
+script = ExtResource("14_u8s88")
+pet_save = NodePath("../Systems/PetSave")
 
 [node name="Menus" type="Node" parent="." unique_id=2028236517]
 

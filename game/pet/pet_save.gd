@@ -34,7 +34,7 @@ func _exit_tree() -> void:
 	save_game()
 
 
-func save_game() -> void:
+func save_game() -> bool:
 	_time_since_save = 0.0
 	var data := {
 		"version": SAVE_VERSION,
@@ -45,11 +45,12 @@ func save_game() -> void:
 	var file := FileAccess.open(SAVE_PATH, FileAccess.WRITE)
 	if file == null:
 		push_warning("PetSave: could not write %s (error %d)" % [SAVE_PATH, FileAccess.get_open_error()])
-		return
+		return false
 	file.store_string(JSON.stringify(data, "\t"))
 	file.close()
 	saved.emit()
-
+	return true
+	
 
 func load_game() -> void:
 	if not FileAccess.file_exists(SAVE_PATH):

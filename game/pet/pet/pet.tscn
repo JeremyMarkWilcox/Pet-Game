@@ -192,7 +192,7 @@ script = ExtResource("1_c730y")
 sprite = NodePath("Sprite")
 need_bubble = NodePath("NeedBubble")
 need_icon = NodePath("NeedBubble/HBoxContainer/NeedIcon")
-need_label = NodePath("NeedBubble/HBoxContainer/NeedLabel")
+need_label = NodePath("")
 growl_sound = ExtResource("2_1o875")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=1800547036]
@@ -215,7 +215,5 @@ layout_mode = 2
 [node name="NeedIcon" type="TextureRect" parent="NeedBubble/HBoxContainer" unique_id=1853013214]
 custom_minimum_size = Vector2(16, 16)
 layout_mode = 2
+size_flags_horizontal = 3
 expand_mode = 1
-
-[node name="NeedLabel" type="Label" parent="NeedBubble/HBoxContainer" unique_id=1143470890]
-layout_mode = 2

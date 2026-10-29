@@ -59,7 +59,7 @@ func _update_bubble() -> void:
 	need_bubble.visible = need != null
 	if need:
 		need_icon.texture = need.icon
-		need_label.text = String(need.id) if need.icon == null else ""
+	#need_label.text = String(need.id) if need.icon == null else ""
 
 
 ## The requested need with the lowest value, or null if the pet is content.
