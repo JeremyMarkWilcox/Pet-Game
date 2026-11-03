@@ -11,6 +11,7 @@ const SAVE_VERSION := 1
 @export var needs_system: NeedsSystem
 @export var bond_system: BondSystem
 @export_range(5.0, 300.0, 5.0, "suffix:s") var autosave_interval: float = 30.0
+@export var hints: PetHints
 
 var _time_since_save := 0.0
 
@@ -41,6 +42,7 @@ func save_game() -> bool:
 		"saved_at": Time.get_unix_time_from_system(),
 		"needs": needs_system.get_save_data(),
 		"bond": bond_system.get_save_data(),
+		"hints_seen": hints.get_save_data(),
 	}
 	var file := FileAccess.open(SAVE_PATH, FileAccess.WRITE)
 	if file == null:
@@ -64,3 +66,4 @@ func load_game() -> void:
 	var seconds_away := maxf(0.0, now - float(data.get("saved_at", now)))
 	needs_system.load_save_data(data.get("needs", {}), seconds_away)
 	bond_system.load_save_data(float(data.get("bond", 0.0)), seconds_away)
+	hints.load_save_data(data.get("hints_seen", []))

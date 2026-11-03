@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://h8l8e15od7sr" path="res://game/pet/pet_brain.gd" id="2_dxwpq"]
 [ext_resource type="PackedScene" uid="uid://clc41ipfan7bu" path="res://core/ui/pause_menu.tscn" id="2_m71xk"]
 [ext_resource type="PackedScene" uid="uid://dr52lc4bvyyj7" path="res://core/ui/settings_menu.tscn" id="3_m71xk"]
+[ext_resource type="Script" uid="uid://bntojylp4aimo" path="res://game/pet/pet_hints.gd" id="3_mhvfb"]
 [ext_resource type="Script" uid="uid://bab0dwbj30llf" path="res://game/pet/needs/needs_system.gd" id="3_vsp63"]
 [ext_resource type="Script" uid="uid://c3kq1ndplnwlm" path="res://game/pet/needs/need_data.gd" id="4_b686c"]
 [ext_resource type="PackedScene" uid="uid://cyyymtcnpcy60" path="res://core/ui/end_screen.tscn" id="5_adwu5"]
@@ -21,6 +22,7 @@
 [ext_resource type="Script" uid="uid://cqbjq0ynsoqwx" path="res://game/pet/interaction_panel.gd" id="11_ln7ps"]
 [ext_resource type="Script" uid="uid://doiubreqv8ijg" path="res://game/pet/pet/status_panel.gd" id="11_pxxsx"]
 [ext_resource type="Script" uid="uid://dm0vb5k5y47yx" path="res://game/pet/pet/save_button.gd" id="14_u8s88"]
+[ext_resource type="PackedScene" uid="uid://ccdu0hvxe0us" path="res://core/ui/hint_card.tscn" id="23_5e03w"]
 
 [node name="Game" type="Control" unique_id=670230050 node_paths=PackedStringArray("pause_menu", "needs_system")]
 layout_mode = 3
@@ -38,16 +40,23 @@ script = ExtResource("2_dxwpq")
 pet = NodePath("../Pet")
 walk_speed = 16.0
 
+[node name="PetHints" type="Node" parent="." unique_id=38395103 node_paths=PackedStringArray("hint_card", "pet", "needs_system")]
+script = ExtResource("3_mhvfb")
+hint_card = NodePath("../Menus/HintCard")
+pet = NodePath("../Pet")
+needs_system = NodePath("../Systems/NeedsSystem")
+
 [node name="Systems" type="Node" parent="." unique_id=1045684030]
 
 [node name="NeedsSystem" type="Node" parent="Systems" unique_id=2082929055]
 script = ExtResource("3_vsp63")
 needs = Array[ExtResource("4_b686c")]([ExtResource("5_hb504"), ExtResource("6_ee6o4"), ExtResource("6_ln7ps")])
 
-[node name="PetSave" type="Node" parent="Systems" unique_id=695942011 node_paths=PackedStringArray("needs_system", "bond_system")]
+[node name="PetSave" type="Node" parent="Systems" unique_id=695942011 node_paths=PackedStringArray("needs_system", "bond_system", "hints")]
 script = ExtResource("7_hb504")
 needs_system = NodePath("../NeedsSystem")
 bond_system = NodePath("../BondSystem")
+hints = NodePath("../../PetHints")
 
 [node name="BondSystem" type="Node" parent="Systems" unique_id=1714183224 node_paths=PackedStringArray("needs_system")]
 script = ExtResource("8_4cobl")
@@ -181,3 +190,11 @@ stinger = ExtResource("7_1vmna")
 
 [node name="ControlsMenu" parent="Menus" unique_id=1503134691 instance=ExtResource("8_wmqhs")]
 visible = false
+
+[node name="HintCard" parent="Menus" unique_id=342804509 instance=ExtResource("23_5e03w")]
+visible = false
+custom_maximum_size = Vector2(400, -1)
+offset_left = -263.0
+offset_top = -204.0
+offset_right = -263.0
+offset_bottom = -204.0
