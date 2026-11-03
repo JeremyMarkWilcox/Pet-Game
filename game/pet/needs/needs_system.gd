@@ -4,6 +4,7 @@ extends Node
 
 signal need_changed(id: StringName, value: float)
 signal action_handled(action_id: StringName, accepted: bool)
+signal need_satisfied(id: StringName, restored: float, was_requested: bool)
 
 const TICK_INTERVAL := 1.0 ## Seconds between updates
 
@@ -44,17 +45,23 @@ func is_requesting(id: StringName) -> bool:
 	return need != null and get_value(id) < need.request_threshold
 
 
-func satisfy(id: StringName) -> void:
+## Restores the need by its satisfy_amount. Returns how much it actually went up (capped at full).
+func satisfy(id: StringName) -> float:
 	var need: NeedData = _needs_by_id.get(id)
-	if need:
-		_set_value(id, get_value(id) + need.satisfy_amount)
-		
-		
-## Tries an action (e.g. &"feed"). Only counts if the matching need is low enough to be requested.
+	if need == null:
+		return 0.0
+	var before := get_value(id)
+	_set_value(id, before + need.satisfy_amount)
+	return get_value(id) - before
+
+
+## Tries an action (e.g. &"feed"). Counts whenever the matching need isn't (nearly) full.
 func try_action(action_id: StringName) -> bool:
 	for need in needs:
-		if need.action_id == action_id and is_requesting(need.id):
-			satisfy(need.id)
+		if need.action_id == action_id and get_value(need.id) < need.accept_below:
+			var was_requested := is_requesting(need.id)
+			var restored := satisfy(need.id)
+			need_satisfied.emit(need.id, restored, was_requested)
 			action_handled.emit(action_id, true)
 			return true
 	action_handled.emit(action_id, false)

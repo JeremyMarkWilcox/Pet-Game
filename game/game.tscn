@@ -46,7 +46,6 @@ bond_system = NodePath("../BondSystem")
 [node name="BondSystem" type="Node" parent="Systems" unique_id=1714183224 node_paths=PackedStringArray("needs_system")]
 script = ExtResource("8_4cobl")
 needs_system = NodePath("../NeedsSystem")
-gain_per_action = 0.07
 
 [node name="Background" type="ColorRect" parent="." unique_id=1037094621]
 layout_mode = 1

@@ -8,7 +8,8 @@ signal bond_changed(value: float)
 const TICK_INTERVAL := 1.0 ## Seconds between updates
 
 @export var needs_system: NeedsSystem
-@export_range(0.0, 0.5, 0.01) var gain_per_action: float = 0.05
+@export_range(0.0, 1.0, 0.01) var gain_per_need_point: float = 0.1 ## Bond per 100% of need restored
+@export_range(1.0, 3.0, 0.1) var requested_bonus: float = 1.5 ## Multiplier when the pet was asking for it
 
 @export_group("Decay")
 @export_range(1.0, 168.0, 1.0, "suffix:h") var hours_full_to_empty: float = 48.0 ## While the pet has an unmet need
@@ -21,7 +22,7 @@ var _last_tick := 0.0
 
 
 func _ready() -> void:
-	needs_system.action_handled.connect(_on_action_handled)
+	needs_system.need_satisfied.connect(_on_need_satisfied)
 	_last_tick = Time.get_unix_time_from_system()
 
 
@@ -52,9 +53,12 @@ func load_save_data(saved_bond: float, seconds_away: float) -> void:
 	_last_tick = Time.get_unix_time_from_system()
 
 
-func _on_action_handled(_action_id: StringName, accepted: bool) -> void:
-	if accepted:
-		_set_bond(_bond + gain_per_action)
+# Grows with every bit of need the player restores.
+func _on_need_satisfied(_id: StringName, restored: float, was_requested: bool) -> void:
+	var gain := restored * gain_per_need_point
+	if was_requested:
+		gain *= requested_bonus
+	_set_bond(_bond + gain)
 
 
 func _has_unmet_need() -> bool:

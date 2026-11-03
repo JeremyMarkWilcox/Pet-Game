@@ -15,6 +15,7 @@ extends Resource
 @export_group("Behavior")
 @export_range(0.0, 1.0, 0.05) var request_threshold: float = 0.4 ## Below this, the pet asks for it
 @export_range(0.0, 1.0, 0.05) var satisfy_amount: float = 0.5
+@export_range(0.5, 1.0, 0.05) var accept_below: float = 0.9 ## Actions are accepted while the need is below this
 
 
 func get_decay_per_second() -> float:
