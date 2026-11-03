@@ -15,6 +15,21 @@ func _ready() -> void:
 
 func _on_pet_clicked() -> void:
 	visible = not visible
+	if visible:
+		_follow_pet()
+		
+		
+func _process(_delta: float) -> void:
+	if visible:
+		_follow_pet()
+
+
+## Sits centered under the pet's feet, kept on screen.
+func _follow_pet() -> void:
+	var screen := get_parent_area_size()
+	var x := pet.position.x + (pet.size.x - size.x) * 0.5
+	var y := pet.position.y + pet.size.y + 2.0
+	position = Vector2(clampf(x, 0.0, screen.x - size.x), clampf(y, 0.0, screen.y - size.y))
 
 
 func _input(event: InputEvent) -> void:

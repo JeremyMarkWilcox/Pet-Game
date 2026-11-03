@@ -23,13 +23,43 @@ signal clicked
 @export var growl_sound: AudioStream ## Optional
 
 var _annoyances: Array[float] = []
+var _bubble_rest_x := 0.0
 
 func _ready() -> void:
+	_bubble_rest_x = need_bubble.position.x
 	sprite.animation_finished.connect(_on_animation_finished)
 	needs_system.need_changed.connect(_on_need_changed)
 	needs_system.action_handled.connect(_on_action_handled)
 	sprite.play(&"idle")
 	_update_bubble()
+	
+	
+## True while a reaction plays (eat, play, pet, decline, growl).
+func is_busy() -> bool:
+	return sprite.animation != &"idle" and sprite.animation != &"walk"
+
+
+## True while the pet is asking for a need (the bubble is showing).
+func is_asking() -> bool:
+	return _get_most_urgent_need() != null
+
+
+func play_walk() -> void:
+	sprite.play(&"walk")
+
+
+func stop_walking() -> void:
+	if sprite.animation == &"walk":
+		sprite.play(&"idle")
+
+
+## The art faces left; facing right mirrors it and moves the bubble to the other side of the head.
+func set_facing_right(right: bool) -> void:
+	sprite.flip_h = right
+	if right:
+		need_bubble.position.x = size.x - _bubble_rest_x - need_bubble.size.x
+	else:
+		need_bubble.position.x = _bubble_rest_x
 
 
 func _gui_input(event: InputEvent) -> void:
