@@ -71,10 +71,10 @@ bond_system = NodePath("../Systems/BondSystem")
 
 [node name="Pet" parent="." unique_id=827091713 node_paths=PackedStringArray("needs_system") instance=ExtResource("10_4cobl")]
 layout_mode = 1
-offset_left = 250.0
-offset_top = 120.0
-offset_right = 425.0
-offset_bottom = 320.0
+offset_left = 336.0
+offset_top = 330.0
+offset_right = 624.0
+offset_bottom = 530.0
 needs_system = NodePath("../Systems/NeedsSystem")
 
 [node name="StatusPanel" type="VBoxContainer" parent="." unique_id=1050979910 node_paths=PackedStringArray("needs_system", "bond_system", "bond_bar")]
