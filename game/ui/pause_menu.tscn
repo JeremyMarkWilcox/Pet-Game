@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://clc41ipfan7bu"]
 
-[ext_resource type="Script" uid="uid://blcy7p60o1i33" path="res://core/ui/pause_menu.gd" id="1_jxs0t"]
+[ext_resource type="Script" uid="uid://blcy7p60o1i33" path="res://game/ui/pause_menu.gd" id="1_jxs0t"]
 
 [node name="PauseMenu" type="Control" unique_id=1641965247 node_paths=PackedStringArray("resume_button", "restart_button", "quit_button", "settings_button", "first_focus", "focus_chain")]
 layout_mode = 3

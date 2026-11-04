@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://cniox0c88ga5l"]
 
-[ext_resource type="Script" uid="uid://djnn12jikg6ib" path="res://core/ui/controls_menu.gd" id="1_v34rh"]
-[ext_resource type="Theme" uid="uid://big3vhu7k1hbb" path="res://core/theme/base_theme.tres" id="2_4gk8h"]
-[ext_resource type="Script" uid="uid://bbwq8cxhfhu2i" path="res://core/ui/rebind.gd" id="2_ovn7s"]
+[ext_resource type="Script" uid="uid://djnn12jikg6ib" path="res://game/ui/controls_menu.gd" id="1_v34rh"]
+[ext_resource type="Theme" uid="uid://big3vhu7k1hbb" path="res://assets/theme/base_theme.tres" id="2_4gk8h"]
+[ext_resource type="Script" uid="uid://bbwq8cxhfhu2i" path="res://game/ui/rebind.gd" id="2_ovn7s"]
 
 [node name="ControlsMenu" type="Control" unique_id=1503134691 node_paths=PackedStringArray("reset_button", "back_button", "first_focus", "focus_chain")]
 layout_mode = 3

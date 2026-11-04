@@ -1,28 +1,25 @@
 [gd_scene format=3 uid="uid://dpeqdxb317lrk"]
 
-[ext_resource type="Script" uid="uid://qy4it252asph" path="res://game/game.gd" id="1_qdja7"]
-[ext_resource type="Script" uid="uid://h8l8e15od7sr" path="res://game/pet/pet_brain.gd" id="2_dxwpq"]
-[ext_resource type="PackedScene" uid="uid://clc41ipfan7bu" path="res://core/ui/pause_menu.tscn" id="2_m71xk"]
-[ext_resource type="PackedScene" uid="uid://dr52lc4bvyyj7" path="res://core/ui/settings_menu.tscn" id="3_m71xk"]
-[ext_resource type="Script" uid="uid://bntojylp4aimo" path="res://game/pet/pet_hints.gd" id="3_mhvfb"]
-[ext_resource type="Script" uid="uid://bab0dwbj30llf" path="res://game/pet/needs/needs_system.gd" id="3_vsp63"]
-[ext_resource type="Script" uid="uid://c3kq1ndplnwlm" path="res://game/pet/needs/need_data.gd" id="4_b686c"]
-[ext_resource type="PackedScene" uid="uid://cyyymtcnpcy60" path="res://core/ui/end_screen.tscn" id="5_adwu5"]
-[ext_resource type="Resource" uid="uid://cjpffpw62djl2" path="res://game/pet/needs/hunger.tres" id="5_hb504"]
-[ext_resource type="Resource" uid="uid://d1ptpuylddq00" path="res://game/pet/needs/boredom.tres" id="6_ee6o4"]
-[ext_resource type="AudioStream" uid="uid://b8d08d24ieooh" path="res://assets/sounds/music/kayak.mp3" id="6_knu3h"]
-[ext_resource type="Resource" uid="uid://bk3m7dlnam7t1" path="res://game/pet/needs/sleepy.tres" id="6_ln7ps"]
-[ext_resource type="AudioStream" uid="uid://c476cpsaki108" path="res://assets/sounds/music/game_over.ogg" id="7_1vmna"]
-[ext_resource type="Script" uid="uid://dbajpfva2dtv1" path="res://game/pet/pet_save.gd" id="7_hb504"]
-[ext_resource type="Script" uid="uid://5gbra0iogkv0" path="res://game/pet/bond/bond_system.gd" id="8_4cobl"]
-[ext_resource type="Script" uid="uid://yy1usu1mpmia" path="res://game/pet/needs/needs_debug_label.gd" id="8_ee6o4"]
-[ext_resource type="PackedScene" uid="uid://cniox0c88ga5l" path="res://core/ui/controls_menu.tscn" id="8_wmqhs"]
-[ext_resource type="Script" uid="uid://brts7u4aslwat" path="res://game/pet/action_button.gd" id="9_hb504"]
-[ext_resource type="PackedScene" uid="uid://n7uv2aldgp81" path="res://game/pet/pet/pet.tscn" id="10_4cobl"]
-[ext_resource type="Script" uid="uid://cqbjq0ynsoqwx" path="res://game/pet/interaction_panel.gd" id="11_ln7ps"]
-[ext_resource type="Script" uid="uid://doiubreqv8ijg" path="res://game/pet/pet/status_panel.gd" id="11_pxxsx"]
-[ext_resource type="Script" uid="uid://dm0vb5k5y47yx" path="res://game/pet/pet/save_button.gd" id="14_u8s88"]
-[ext_resource type="PackedScene" uid="uid://ccdu0hvxe0us" path="res://core/ui/hint_card.tscn" id="23_5e03w"]
+[ext_resource type="Script" uid="uid://qy4it252asph" path="res://game/ui/game.gd" id="1_w3ckq"]
+[ext_resource type="Script" uid="uid://h8l8e15od7sr" path="res://game/pet/pet/pet_brain.gd" id="2_sre6s"]
+[ext_resource type="Script" uid="uid://bntojylp4aimo" path="res://game/pet/pet/pet_hints.gd" id="3_8l2ae"]
+[ext_resource type="Script" uid="uid://bab0dwbj30llf" path="res://game/pet/needs/needs_system.gd" id="4_c0jgs"]
+[ext_resource type="Script" uid="uid://c3kq1ndplnwlm" path="res://game/pet/needs/need_data.gd" id="5_5k782"]
+[ext_resource type="Resource" uid="uid://cjpffpw62djl2" path="res://game/pet/needs/hunger.tres" id="6_d7xnc"]
+[ext_resource type="Resource" uid="uid://d1ptpuylddq00" path="res://game/pet/needs/boredom.tres" id="7_udkbw"]
+[ext_resource type="Resource" uid="uid://bk3m7dlnam7t1" path="res://game/pet/needs/sleepy.tres" id="8_p3why"]
+[ext_resource type="Script" uid="uid://dbajpfva2dtv1" path="res://game/pet/pet/pet_save.gd" id="9_bbakx"]
+[ext_resource type="Script" uid="uid://5gbra0iogkv0" path="res://game/pet/bond/bond_system.gd" id="10_1ma5l"]
+[ext_resource type="Script" uid="uid://yy1usu1mpmia" path="res://game/pet/needs/needs_debug_label.gd" id="11_e3w10"]
+[ext_resource type="PackedScene" uid="uid://n7uv2aldgp81" path="res://game/pet/pet/pet.tscn" id="12_c2xe5"]
+[ext_resource type="Script" uid="uid://doiubreqv8ijg" path="res://game/ui/status_panel.gd" id="13_ogsvs"]
+[ext_resource type="Script" uid="uid://cqbjq0ynsoqwx" path="res://game/ui/interaction_panel.gd" id="14_44yvp"]
+[ext_resource type="Script" uid="uid://brts7u4aslwat" path="res://game/ui/action_button.gd" id="15_1530d"]
+[ext_resource type="Script" uid="uid://dm0vb5k5y47yx" path="res://game/ui/save_button.gd" id="16_h8bgh"]
+[ext_resource type="PackedScene" uid="uid://clc41ipfan7bu" path="res://game/ui/pause_menu.tscn" id="17_ygynl"]
+[ext_resource type="PackedScene" uid="uid://dr52lc4bvyyj7" path="res://game/ui/settings_menu.tscn" id="18_yc2oq"]
+[ext_resource type="PackedScene" uid="uid://cniox0c88ga5l" path="res://game/ui/controls_menu.tscn" id="20_dmblp"]
+[ext_resource type="PackedScene" uid="uid://ccdu0hvxe0us" path="res://game/ui/hint_card.tscn" id="21_u5ssk"]
 
 [node name="Game" type="Control" unique_id=670230050 node_paths=PackedStringArray("pause_menu", "needs_system")]
 layout_mode = 3
@@ -31,17 +28,17 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_qdja7")
+script = ExtResource("1_w3ckq")
 pause_menu = NodePath("Menus/PauseMenu")
 needs_system = NodePath("Systems/NeedsSystem")
 
 [node name="PetBrain" type="Node" parent="." unique_id=702425415 node_paths=PackedStringArray("pet")]
-script = ExtResource("2_dxwpq")
+script = ExtResource("2_sre6s")
 pet = NodePath("../Pet")
 walk_speed = 16.0
 
 [node name="PetHints" type="Node" parent="." unique_id=38395103 node_paths=PackedStringArray("hint_card", "pet", "needs_system")]
-script = ExtResource("3_mhvfb")
+script = ExtResource("3_8l2ae")
 hint_card = NodePath("../Menus/HintCard")
 pet = NodePath("../Pet")
 needs_system = NodePath("../Systems/NeedsSystem")
@@ -49,17 +46,17 @@ needs_system = NodePath("../Systems/NeedsSystem")
 [node name="Systems" type="Node" parent="." unique_id=1045684030]
 
 [node name="NeedsSystem" type="Node" parent="Systems" unique_id=2082929055]
-script = ExtResource("3_vsp63")
-needs = Array[ExtResource("4_b686c")]([ExtResource("5_hb504"), ExtResource("6_ee6o4"), ExtResource("6_ln7ps")])
+script = ExtResource("4_c0jgs")
+needs = Array[ExtResource("5_5k782")]([ExtResource("6_d7xnc"), ExtResource("7_udkbw"), ExtResource("8_p3why")])
 
 [node name="PetSave" type="Node" parent="Systems" unique_id=695942011 node_paths=PackedStringArray("needs_system", "bond_system", "hints")]
-script = ExtResource("7_hb504")
+script = ExtResource("9_bbakx")
 needs_system = NodePath("../NeedsSystem")
 bond_system = NodePath("../BondSystem")
 hints = NodePath("../../PetHints")
 
 [node name="BondSystem" type="Node" parent="Systems" unique_id=1714183224 node_paths=PackedStringArray("needs_system")]
-script = ExtResource("8_4cobl")
+script = ExtResource("10_1ma5l")
 needs_system = NodePath("../NeedsSystem")
 
 [node name="Background" type="ColorRect" parent="." unique_id=1037094621]
@@ -81,11 +78,11 @@ offset_top = -25.0
 offset_right = 50.0
 grow_vertical = 0
 text = "Stats"
-script = ExtResource("8_ee6o4")
+script = ExtResource("11_e3w10")
 needs_system = NodePath("../Systems/NeedsSystem")
 bond_system = NodePath("../Systems/BondSystem")
 
-[node name="Pet" parent="." unique_id=827091713 node_paths=PackedStringArray("needs_system") instance=ExtResource("10_4cobl")]
+[node name="Pet" parent="." unique_id=827091713 node_paths=PackedStringArray("needs_system") instance=ExtResource("12_c2xe5")]
 layout_mode = 1
 offset_left = 336.0
 offset_top = 330.0
@@ -99,7 +96,7 @@ offset_left = 14.0
 offset_top = 15.0
 offset_right = 118.0
 offset_bottom = 55.0
-script = ExtResource("11_pxxsx")
+script = ExtResource("13_ogsvs")
 needs_system = NodePath("../Systems/NeedsSystem")
 bond_system = NodePath("../Systems/BondSystem")
 bond_bar = NodePath("BondRow/BondBar")
@@ -130,27 +127,27 @@ offset_right = -203.0
 offset_bottom = -491.0
 grow_horizontal = 2
 grow_vertical = 0
-script = ExtResource("11_ln7ps")
+script = ExtResource("14_44yvp")
 pet = NodePath("../Pet")
 
 [node name="Feed" type="Button" parent="InteractionPanel" unique_id=1939082210 node_paths=PackedStringArray("needs_system")]
 layout_mode = 2
 text = "Feed"
-script = ExtResource("9_hb504")
+script = ExtResource("15_1530d")
 action_id = &"feed"
 needs_system = NodePath("../../Systems/NeedsSystem")
 
 [node name="Play" type="Button" parent="InteractionPanel" unique_id=1525215469 node_paths=PackedStringArray("needs_system")]
 layout_mode = 2
 text = "Play"
-script = ExtResource("9_hb504")
+script = ExtResource("15_1530d")
 action_id = &"play"
 needs_system = NodePath("../../Systems/NeedsSystem")
 
 [node name="Pet" type="Button" parent="InteractionPanel" unique_id=852665721 node_paths=PackedStringArray("needs_system")]
 layout_mode = 2
 text = "Pet"
-script = ExtResource("9_hb504")
+script = ExtResource("15_1530d")
 action_id = &"pet"
 needs_system = NodePath("../../Systems/NeedsSystem")
 
@@ -165,33 +162,24 @@ offset_right = -26.0
 offset_bottom = 36.0
 grow_horizontal = 0
 text = "Save"
-script = ExtResource("14_u8s88")
+script = ExtResource("16_h8bgh")
 pet_save = NodePath("../Systems/PetSave")
 
 [node name="Menus" type="Node" parent="." unique_id=2028236517]
 
-[node name="PauseMenu" parent="Menus" unique_id=1641965247 node_paths=PackedStringArray("settings_menu") instance=ExtResource("2_m71xk")]
+[node name="PauseMenu" parent="Menus" unique_id=1641965247 node_paths=PackedStringArray("settings_menu") instance=ExtResource("17_ygynl")]
 visible = false
 settings_menu = NodePath("../SettingsMenu")
 pause_on_focus_loss = false
 
-[node name="SettingsMenu" parent="Menus" unique_id=662873383 node_paths=PackedStringArray("controls_menu") instance=ExtResource("3_m71xk")]
+[node name="SettingsMenu" parent="Menus" unique_id=662873383 node_paths=PackedStringArray("controls_menu") instance=ExtResource("18_yc2oq")]
 visible = false
 controls_menu = NodePath("../ControlsMenu")
 
-[node name="WinScreen" parent="Menus" unique_id=1090858386 instance=ExtResource("5_adwu5")]
-visible = false
-heading_text = "You Win!"
-music = ExtResource("6_knu3h")
-
-[node name="GameOverScreen" parent="Menus" unique_id=576888152 instance=ExtResource("5_adwu5")]
-visible = false
-stinger = ExtResource("7_1vmna")
-
-[node name="ControlsMenu" parent="Menus" unique_id=1503134691 instance=ExtResource("8_wmqhs")]
+[node name="ControlsMenu" parent="Menus" unique_id=1503134691 instance=ExtResource("20_dmblp")]
 visible = false
 
-[node name="HintCard" parent="Menus" unique_id=342804509 instance=ExtResource("23_5e03w")]
+[node name="HintCard" parent="Menus" unique_id=342804509 instance=ExtResource("21_u5ssk")]
 visible = false
 custom_maximum_size = Vector2(400, -1)
 offset_left = -263.0

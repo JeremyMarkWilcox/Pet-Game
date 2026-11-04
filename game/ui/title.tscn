@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://bub40ec1qfl2u"]
 
-[ext_resource type="Script" uid="uid://dotsrnnn415j1" path="res://core/ui/title.gd" id="1_s5xim"]
-[ext_resource type="AudioStream" uid="uid://5mleoov5usmt" path="res://assets/sounds/music/deified.wav" id="2_f8y5p"]
-[ext_resource type="PackedScene" uid="uid://dr52lc4bvyyj7" path="res://core/ui/settings_menu.tscn" id="2_fepre"]
-[ext_resource type="PackedScene" uid="uid://ddt1m8s6wg7ju" path="res://core/ui/credits.tscn" id="4_q06yk"]
-[ext_resource type="PackedScene" uid="uid://cniox0c88ga5l" path="res://core/ui/controls_menu.tscn" id="5_f8y5p"]
+[ext_resource type="Script" uid="uid://dotsrnnn415j1" path="res://game/ui/title.gd" id="1_s5xim"]
+[ext_resource type="AudioStream" path="res://assets/sounds/music/deified.wav" id="2_f8y5p"]
+[ext_resource type="PackedScene" uid="uid://dr52lc4bvyyj7" path="res://game/ui/settings_menu.tscn" id="2_fepre"]
+[ext_resource type="PackedScene" uid="uid://ddt1m8s6wg7ju" path="res://game/ui/credits.tscn" id="4_q06yk"]
+[ext_resource type="PackedScene" uid="uid://cniox0c88ga5l" path="res://game/ui/controls_menu.tscn" id="5_f8y5p"]
 
 [node name="Title" type="Control" unique_id=1641629483 node_paths=PackedStringArray("play_button", "settings_button", "credits_button", "quit_button", "settings_menu", "credits_menu", "version_label")]
 layout_mode = 3

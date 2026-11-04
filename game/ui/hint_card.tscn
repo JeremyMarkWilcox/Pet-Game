@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://ccdu0hvxe0us"]
 
-[ext_resource type="Script" uid="uid://5k0pemw64qrg" path="res://core/ui/hint_card.gd" id="1_sgxwx"]
-[ext_resource type="Theme" uid="uid://big3vhu7k1hbb" path="res://core/theme/base_theme.tres" id="2_rw3bs"]
+[ext_resource type="Script" uid="uid://5k0pemw64qrg" path="res://game/ui/hint_card.gd" id="1_sgxwx"]
+[ext_resource type="Theme" uid="uid://big3vhu7k1hbb" path="res://assets/theme/base_theme.tres" id="2_rw3bs"]
 
 [node name="HintCard" type="Control" unique_id=342804509 node_paths=PackedStringArray("title_label", "body_label", "got_it_button", "first_focus")]
 layout_mode = 3

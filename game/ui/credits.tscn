@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://ddt1m8s6wg7ju"]
 
-[ext_resource type="Script" uid="uid://pd8cv474isyx" path="res://core/ui/credits.gd" id="1_3mp8h"]
-[ext_resource type="Theme" uid="uid://big3vhu7k1hbb" path="res://core/theme/base_theme.tres" id="2_3t7oe"]
+[ext_resource type="Script" uid="uid://pd8cv474isyx" path="res://game/ui/credits.gd" id="1_3mp8h"]
+[ext_resource type="Theme" uid="uid://big3vhu7k1hbb" path="res://assets/theme/base_theme.tres" id="2_3t7oe"]
 
 [node name="Credits" type="Control" unique_id=1391844769 node_paths=PackedStringArray("back_button", "scroll", "first_focus", "focus_chain")]
 layout_mode = 3
