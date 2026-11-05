@@ -82,6 +82,18 @@ script = ExtResource("11_e3w10")
 needs_system = NodePath("../Systems/NeedsSystem")
 bond_system = NodePath("../Systems/BondSystem")
 
+[node name="Floor" type="ColorRect" parent="." unique_id=697554776]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -100.0
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0.27883095, 0.16083029, 0.041279003, 1)
+
 [node name="Pet" parent="." unique_id=827091713 node_paths=PackedStringArray("needs_system") instance=ExtResource("12_c2xe5")]
 layout_mode = 1
 offset_left = 336.0
