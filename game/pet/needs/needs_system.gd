@@ -21,7 +21,7 @@ func _ready() -> void:
 			push_warning("NeedsSystem: a NeedData has no id: %s" % need.resource_path)
 		_needs_by_id[need.id] = need
 		if not _values.has(need.id):
-			_values[need.id] = 1.0
+			_values[need.id] = need.start_value
 	_last_tick = Time.get_unix_time_from_system()
 
 
@@ -83,7 +83,7 @@ func get_save_data() -> Dictionary:
 
 func load_save_data(data: Dictionary, seconds_away: float) -> void:
 	for need in needs:
-		var value: float = data.get(String(need.id), 1.0)
+		var value: float = data.get(String(need.id), need.start_value)
 		var offline_loss := need.get_decay_per_second() * need.offline_rate_multiplier * seconds_away
 		var lowest := minf(value, need.offline_floor) # never raise a need that was already below the floor
 		_set_value(need.id, maxf(value - offline_loss, lowest))

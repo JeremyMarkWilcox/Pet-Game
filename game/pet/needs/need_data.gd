@@ -13,6 +13,7 @@ extends Resource
 @export_range(0.0, 1.0, 0.05) var offline_floor: float = 0.2 ## Never drops below this while closed
 
 @export_group("Behavior")
+@export_range(0.0, 1.0, 0.05) var start_value: float = 0.5 ## Value for a brand-new pet
 @export_range(0.0, 1.0, 0.05) var request_threshold: float = 0.4 ## Below this, the pet asks for it
 @export_range(0.0, 1.0, 0.05) var satisfy_amount: float = 0.5
 @export_range(0.5, 1.0, 0.05) var accept_below: float = 0.9 ## Actions are accepted while the need is below this
